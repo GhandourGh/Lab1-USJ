@@ -62,9 +62,9 @@ def transpose(m):
     return matrix
 
 
-M = [[1, 2, 2], [2, 1, -2], [2, -2, 1]]
-print_matrix(M, "Matrix = ")
-print_matrix(transpose(M), "Transpose = ")
+M = [[4, 2, 22], [2, 3, -1], [2, -9, 11]]
+print_matrix(M, "Original Matrix")
+print_matrix(transpose(M), "Transpose")
 
 ###########
 #### 4 ####
@@ -78,10 +78,52 @@ def mult_row_scalar(M, row, scalar):
 
 mult_row_scalar(M, 1, 10)
 mult_row_scalar(M, 2, 10)
-print_matrix(M, "Matrix = ")
+print_matrix(M, "Row Multiplied Matrix")
 
 ###########
 #### 5 ####
 ###########
 
+def add_matrices(A, B):
+    row = len(A)
+    col = len(A[0])
+    result = []
+    for i in range(row):
+        new_row = []
+        for j in range(col):
+            value = A[i][j] + B[i][j]
+            new_row.append(value)
+        result.append(new_row)
+    return result
+
+A = [[1, 2, 3],
+     [4, 5, 6]]
+B = [[10, 20, 30],
+     [40, 50, 60]]
+C = add_matrices(A, B)
+print_matrix(C, "Added Matrix A + B")
+
+
+def dot_product(A, B):
+    rowsA = len(A)
+    colsA = len(A[0])
+    colsB = len(B[0])
+    result = []
+    for i in range(rowsA):
+        new_row = []
+        for j in range(colsB):
+            sum = 0
+            for k in range(colsA):
+                sum += A[i][k] * B[k][j]
+            new_row.append(sum)
+        result.append(new_row)
+    return result
+
+A = [[1, 2, 3],
+     [4, 5, 6]]
+B = [[2, 3, 4],
+     [4, 0, 6],
+     [5, 6, 0]]
+C = dot_product(A, B)
+print_matrix(C, "dot Matrix A * B")
 
