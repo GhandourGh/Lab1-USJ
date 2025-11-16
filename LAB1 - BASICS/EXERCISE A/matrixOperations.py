@@ -52,7 +52,7 @@ print_matrix(identity_matrix(3), "Identity")"""
 
 def transpose(m):
     row = len(m)
-    col = len(m)
+    col = len(m[0])
     matrix = []
     for i in range(col):
         new_row = []
@@ -62,6 +62,26 @@ def transpose(m):
     return matrix
 
 
-M = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+M = [[1, 2, 2], [2, 1, -2], [2, -2, 1]]
 print_matrix(M, "Matrix = ")
 print_matrix(transpose(M), "Transpose = ")
+
+###########
+#### 4 ####
+###########
+
+def mult_row_scalar(M, row, scalar):
+    cols = len(M[row])
+    for j in range(cols):
+        M[row][j] *= scalar
+    return M
+
+mult_row_scalar(M, 1, 10)
+mult_row_scalar(M, 2, 10)
+print_matrix(M, "Matrix = ")
+
+###########
+#### 5 ####
+###########
+
+
